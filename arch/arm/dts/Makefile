@@ -197,6 +197,7 @@ dtb-$(CONFIG_ARCH_MVEBU) +=			\
 	armada-8040-db.dtb			\
 	armada-8040-mcbin.dtb			\
 	armada-8040-clearfog-gt-8k.dtb		\
+	armada-8040-cex.dtb                     \
 	armada-xp-gp.dtb			\
 	armada-xp-maxbcm.dtb			\
 	armada-xp-synology-ds414.dtb		\
