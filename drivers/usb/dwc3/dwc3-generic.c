@@ -435,6 +435,7 @@ static int dwc3_glue_remove(struct udevice *dev)
 }
 
 static const struct udevice_id dwc3_glue_ids[] = {
+	{ .compatible = "fsl,imx8mq-dwc3" },
 	{ .compatible = "xlnx,zynqmp-dwc3" },
 	{ .compatible = "ti,keystone-dwc3"},
 	{ .compatible = "ti,dwc3", .data = (ulong)&ti_ops },
