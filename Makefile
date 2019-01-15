@@ -1280,6 +1280,8 @@ U_BOOT_ITS_DEPS += u-boot-nodtb.bin
 endif
 ifeq ($(CONFIG_SPL_FIT_GENERATOR),"arch/arm/mach-rockchip/make_fit_atf.py")
 U_BOOT_ITS_DEPS += u-boot
+else ifeq ($(CONFIG_SPL_FIT_GENERATOR),"arch/arm/mach-imx/mkimage_fit_atf.sh")
+U_BOOT_ITS_DEPS += u-boot-nodtb.bin
 endif
 $(U_BOOT_ITS): $(U_BOOT_ITS_DEPS) FORCE
 	$(srctree)/$(CONFIG_SPL_FIT_GENERATOR) \
