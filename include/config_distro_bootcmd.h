@@ -429,7 +429,22 @@
 	BOOTENV_BOOT_TARGETS \
 	\
 	"boot_syslinux_conf=extlinux/extlinux.conf\0" \
+	"find_uuid="                                                      \
+                "part list ${devtype} ${devnum} devparts; "               \
+                "for devpart in ${devparts}; do "                         \
+                        "if test -z \"${uuid}\"; then "                   \
+                                "if test -e ${devtype} "                  \
+                                                "${devnum}:${devpart} "   \
+                                                "/sbin/init; then "       \
+                                        "part uuid ${devtype} "           \
+                                                "${devnum}:${devpart} "   \
+                                                "uuid; "                  \
+                                "fi; "                                    \
+		        "fi; "                                            \
+                "done\0 "                                                 \
+	\
 	"boot_extlinux="                                                  \
+		"run find_uuid; "                                         \
 		"sysboot ${devtype} ${devnum}:${distro_bootpart} any "    \
 			"${scriptaddr} ${prefix}${boot_syslinux_conf}\0"  \
 	\
