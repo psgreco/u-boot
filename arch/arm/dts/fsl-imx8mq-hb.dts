@@ -18,7 +18,7 @@
 /* First 128KB is for PSCI ATF. */
 /memreserve/ 0x40000000 0x00020000;
 
-#include "fsl-imx8mq.dtsi"
+#include "imx8mq.dtsi"
 
 / {
 	model = "SolidRun i.MX8MQ HummingBoard Pulse";
@@ -355,7 +355,7 @@
 	status = "disabled";
 };
 
-&qspi {
+&qspi0 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_qspi>;
 	status = "okay";
@@ -373,7 +373,7 @@
 &uart1 { /* console */
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart1>;
-	assigned-clocks = <&clk IMX8MQ_CLK_UART1_SRC>;
+	assigned-clocks = <&clk IMX8MQ_CLK_UART1_ROOT>;
 	assigned-clock-parents = <&clk IMX8MQ_CLK_25M>;
 	status = "okay";
 };
@@ -381,7 +381,7 @@
 &uart2 { /* console */
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_uart2>;
-	assigned-clocks = <&clk IMX8MQ_CLK_UART2_SRC>;
+	assigned-clocks = <&clk IMX8MQ_CLK_UART2_ROOT>;
 	assigned-clock-parents = <&clk IMX8MQ_CLK_25M>;
 	status = "okay";
 };
@@ -411,10 +411,6 @@
 	status = "okay";
 };
 
-&usb3_0 {
-	status = "okay";
-};
-
 &usb_dwc3_0 {
 	status = "okay";
 	dr_mode = "peripheral";
@@ -422,10 +418,6 @@
 };
 
 &usb3_phy1 {
-	status = "okay";
-};
-
-&usb3_1 {
 	status = "okay";
 };
 

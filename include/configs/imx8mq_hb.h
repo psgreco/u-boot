@@ -14,7 +14,9 @@
 #define CONFIG_CSF_SIZE			0x2000 /* 8K region */
 #endif
 
+#ifndef CONFIG_SPL_TEXT_BASE
 #define CONFIG_SPL_TEXT_BASE		0x7E1000
+#endif
 #define CONFIG_SPL_MAX_SIZE		(124 * 1024)
 #define CONFIG_SYS_MONITOR_LEN		(512 * 1024)
 #define CONFIG_SYS_MMCSD_RAW_MODE_U_BOOT_USE_SECTOR
@@ -101,8 +103,12 @@
         (CONFIG_SYS_INIT_RAM_ADDR + CONFIG_SYS_INIT_SP_OFFSET)
 
 #define CONFIG_ENV_OVERWRITE
+#ifndef CONFIG_ENV_SIZE
 #define CONFIG_ENV_SIZE			0x2000
+#endif
+#ifndef CONFIG_ENV_OFFSET
 #define CONFIG_ENV_OFFSET               (SZ_2M - CONFIG_ENV_SIZE)
+#endif
 #define CONFIG_SYS_MMC_ENV_DEV		1	/* USDHC1 */
 
 /* Size of malloc() pool */
@@ -133,7 +139,9 @@
 #define CONFIG_SUPPORT_EMMC_BOOT	/* eMMC specific */
 #define CONFIG_SYS_MMC_IMG_LOAD_PART	1
 
+#ifndef CONFIG_MXC_OCOTP
 #define CONFIG_MXC_OCOTP
+#endif
 #define CONFIG_CMD_FUSE
 
 /* I2C Configs */
