@@ -17,7 +17,6 @@
 #include <env.h>
 #include <linux/if_ether.h>
 #include <rand.h>
-#include <environment.h>
 
 #define DEBUG_LL_STATE 0	/* Link local state machine changes */
 #define DEBUG_DEV_PKT 0		/* Packets or info directed to the device */
@@ -815,13 +814,14 @@ static inline int is_valid_ethaddr(const u8 *addr)
  * Generate a random Ethernet address (MAC) that is not multicast
  * and has the local assigned bit set.
  */
+void string_to_enetaddr(const char *addr, uint8_t *enetaddr);
 static inline void net_random_ethaddr(uchar *addr)
 {
 	int i, j = 0;
 	unsigned int seed = get_ticks();
 
 #if defined(CONFIG_NET_RANDOM_ETHADDR_OUI) && !defined(DO_DEPS_ONLY)
-	eth_parse_enetaddr(CONFIG_NET_RANDOM_ETHADDR_OUI, addr);
+	string_to_enetaddr(CONFIG_NET_RANDOM_ETHADDR_OUI, addr);
 	if (is_valid_ethaddr(addr))
 		j = 3;
 #endif
