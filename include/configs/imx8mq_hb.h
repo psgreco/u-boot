@@ -200,8 +200,8 @@
 	"env_dev=" __stringify(CONFIG_SYS_MMC_ENV_DEV) "\0" \
 	"env_part=" __stringify(CONFIG_SYS_MMC_ENV_PART) "\0" \
 	"fdt_addr_r=0x43000000\0" \
-	"fdt_file=fsl-imx8mq-hummingboard-pulse.dtb\0" \
-	"fdtfile=fsl-imx8mq-hummingboard-pulse.dtb\0" \
+	"fdt_file=freescale/imx8mq-hummingboard-pulse.dtb\0" \
+	"fdtfile=freescale/imx8mq-hummingboard-pulse.dtb\0" \
 	"ramdisk_addr_r=0x43800000\0" \
         "kernel_addr_r=" __stringify(CONFIG_LOADADDR) "\0"  \
         "pxefile_addr_r=" __stringify(CONFIG_LOADADDR) "\0" \
