@@ -376,6 +376,7 @@ int ft_system_setup(void *blob, bd_t *bd)
 #endif
 
 #ifdef CONFIG_USB
+#define USB1_BASE_ADDR		0x38100000
 int imx8m_get_usb_index (struct udevice *dev)
 {
 	fdt_addr_t base;
